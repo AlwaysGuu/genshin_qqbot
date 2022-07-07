@@ -1,0 +1,6 @@
+[2022-07-06T17:03:51.225] [ERROR] error - 配置报错：config.js
+ReferenceError: f is not defined
+[2022-07-06T17:03:52.742] [ERROR] error - 配置报错：config.js
+ReferenceError: f is not defined
+[2022-07-06T17:03:53.569] [ERROR] error - 配置报错：config.js
+ReferenceError: tr is not defined

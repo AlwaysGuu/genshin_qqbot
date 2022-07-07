@@ -1,0 +1,532 @@
+{
+	"dec": "命令总览json，只是查看，修改不起作用，需要到具体文件修改",
+	"admin": {
+		"manPlugins": {
+			"reg": "^#*(关闭|开启|禁用)功能(.*)$",
+			"priority": 0,
+			"describe": ""
+		},
+		"resetMan": {
+			"reg": "^#重置关闭功能$",
+			"priority": 1,
+			"describe": ""
+		},
+		"userStat": {
+			"reg": "^#用户(状态|统计)*(uid)*$",
+			"priority": 500,
+			"describe": "【#管理】查看用户状态汇总统计"
+		},
+		"userCacheReset": {
+			"reg": "^#重置用户统计*$",
+			"priority": 500,
+			"describe": "【#管理】重置用户统计"
+		},
+		"allowUseNoteCookie": {
+			"reg": "^#使用全部ck*$",
+			"priority": 500,
+			"describe": "【#管理】重置用户统计"
+		}
+	},
+	"zupdate": {
+		"restartApp": {
+			"reg": "^#重启$",
+			"priority": 48,
+			"describe": "#重启"
+		},
+		"zupdate": {
+			"reg": "^#(更新|强制更新)$",
+			"priority": 49,
+			"describe": "【#更新】自主git pull，请先确认git pull命令有效"
+		},
+		"checkupdate": {
+			"reg": "^#*检查更新$",
+			"priority": 49,
+			"describe": "【#检查更新】"
+		},
+		"updateLog": {
+			"reg": "^#*更新日志[0-9]*$",
+			"priority": 49,
+			"describe": "【#更新日志】默认查询最新的两条更新日志，通过更新日志2、3翻页查询"
+		}
+	},
+	"miao-plugin": {
+		"character": {
+			"reg": "^(#(.*)|#*(更新|录入)?(.*)(详细|详情|面板|面版|伤害[1-7]?)(更新)?)$",
+			"priority": 50,
+			"describe": "【#角色】角色详情"
+		},
+		"uploadCharacterImg": {
+			"reg": "^#*(喵喵)?(上传|添加)(.+)(照片|写真|图片|图像)\\s*$",
+			"priority": 50,
+			"describe": "喵喵上传角色写真"
+		},
+		"profileArtisList": {
+			"reg": "^#圣遗物列表\\s*(\\d{9})?$",
+			"priority": 50,
+			"describe": "【#角色】圣遗物列表"
+		},
+		"getProfileAll": {
+			"reg": "^#(面板角色|角色面板|面板)(列表)?\\s*(\\d{9})?$",
+			"priority": 50,
+			"describe": "【#角色】查看当前已获取面板数据的角色列表"
+		},
+		"profileHelp": {
+			"reg": "^#角色面板帮助$",
+			"priority": 50,
+			"describe": "【#角色】查看当前已获取面板数据的角色列表"
+		},
+		"wife": {
+			"reg": "^#?\\s*(老婆|媳妇|妻子|娘子|老公|丈夫|夫君|郎君|女朋友|女友|女神|男朋友|男友|男神|女儿|儿子)\\s*(设置|选择|指定|列表|查询|列表|是|是谁|照片|相片|图片|写真|图像)?\\s*([^\\d]*)\\s*(\\d*)$",
+			"priority": 50,
+			"describe": "【#角色】#老公 #老婆 查询"
+		},
+		"getOriginalPicture": {
+			"reg": "^#?(获取|给我|我要|求|发|发下|发个|发一下)?原图(吧|呗)?$",
+			"priority": 50,
+			"describe": "【#原图】 回复角色卡片，可获取原图"
+		},
+		"consStat": {
+			"reg": "^#(喵喵)?角色(持有|持有率|命座|命之座|.命)(分布|统计|持有|持有率)?$",
+			"priority": 50,
+			"describe": "【#统计】 #角色持有率 #角色5命统计"
+		},
+		"abyssPct": {
+			"reg": "^#(喵喵)?深渊(第?.{1,2}层)?(角色)?出场(率|统计)*$",
+			"priority": 50,
+			"describe": "【#统计】 #深渊出场率 #深渊12层出场率"
+		},
+		"abyssTeam": {
+			"reg": "#深渊(组队|配队)",
+			"priority": 50,
+			"describe": "【#角色】 #深渊组队"
+		},
+		"wiki": {
+			"reg": "^(#|喵喵)?.*(天赋|技能|命座|命之座|资料|照片|写真|图片|图像)$",
+			"priority": 50,
+			"describe": "【#资料】 #神里天赋 #夜兰命座"
+		},
+		"help": {
+			"reg": "^#?(喵喵)?(命令|帮助|菜单|help|说明|功能|指令|使用说明)$",
+			"priority": 50,
+			"describe": "【#帮助】 #喵喵帮助"
+		},
+		"getProfile": {
+			"reg": "^#(全部面板更新|更新全部面板|获取游戏角色详情|更新面板|面板更新)\\s*(\\d{9})?$",
+			"priority": 50,
+			"describe": "【#角色】 获取游戏橱窗详情数据"
+		},
+		"enemyLv": {
+			"reg": "^#(敌人|怪物)等级\\s*\\d{1,3}\\s*$",
+			"priority": 50,
+			"describe": "【#角色】 设置伤害计算中目标敌人的等级"
+		},
+		"versionInfo": {
+			"reg": "^#?喵喵版本$",
+			"priority": 50,
+			"describe": "【#帮助】 喵喵版本介绍"
+		},
+		"calendar": {
+			"reg": "^(#|喵喵)+(日历|日历列表)$",
+			"priority": 50,
+			"describe": "【#日历】 活动日历"
+		},
+		"uploadData": {
+			"reg": "^#上传深渊数据$",
+			"priority": 50
+		},
+		"updateRes": {
+			"reg": "^#喵喵(更新图像|图像更新)$",
+			"priority": 50,
+			"describe": "【#管理】更新素材"
+		},
+		"updateMiaoPlugin": {
+			"reg": "^#喵喵(强制)?更新",
+			"priority": 50,
+			"describe": "【#管理】喵喵更新"
+		},
+		"sysCfg": {
+			"reg": "^#喵喵设置s*(角色|面板|老婆|小清新|查他人|图鉴|图片|深渊|渲染|帮助)?s*(.*)$",
+			"priority": 50,
+			"describe": "【#管理】系统设置"
+		},
+		"profileCfg": {
+			"reg": "^#喵喵面板(?:设置)?.*",
+			"priority": 50,
+			"describe": "【#管理】面板设置"
+		}
+	},
+	"gacha": {
+		"gacha": {
+			"reg": "^#*(10|[武器池]*[十]+|抽|单)[连抽卡奖][123武器池]*$",
+			"priority": 100,
+			"describe": "【十连，十连2，十连武器】模拟原神抽卡"
+		},
+		"weaponBing": {
+			"reg": "^#*定轨$",
+			"priority": 101,
+			"describe": "【定轨】武器池定轨"
+		}
+	},
+	"mysInfo": {
+		"role": {
+			"reg": "^#(角色2|宝箱|成就|尘歌壶|家园|探索|探险|声望|探险度|探索度)[ |0-9]*$",
+			"priority": 200,
+			"describe": "【#探索，#声望】展示原神角色大地图探险数据"
+		},
+		"roleCard": {
+			"reg": "^(#*角色3|#*角色卡片|角色)$",
+			"priority": 201,
+			"describe": "【#角色卡片，角色】展示原神角色数据卡片，横向"
+		},
+		"roleAll": {
+			"reg": "(^#(角色|查询|查询角色|角色查询|人物)[ |0-9]*$)|(^(#*uid|#*UID)\\+*[1|2|5][0-9]{8}$)|(^#[\\+|＋]*[1|2|5][0-9]{8})",
+			"priority": 202,
+			"describe": "【#角色，#104070461】展示原神角色数据，竖向"
+		},
+		"abyssFloor": {
+			"reg": "^#*[上期|往期|本期]*(深渊|深境|深境螺旋)[上期|往期|本期]*[第]*(9|10|11|12|九|十|十一|十二)层[ |0-9]*$",
+			"priority": 203,
+			"describe": "【#深渊十二层】深境层数数据，竖向"
+		},
+		"abyss": {
+			"reg": "#[上期|往期|本期]*(深渊|深境|深境螺旋)[上期|往期|本期]*[ |0-9]*$",
+			"priority": 204,
+			"describe": "【#深渊】深境数据"
+		},
+		"weapon": {
+			"reg": "^#[五星|四星|5星|4星]*武器$",
+			"priority": 205,
+			"describe": "【#武器】武器列表，只角色已装备"
+		},
+		"life": {
+			"reg": "^#(五星|四星|5星|4星|命座|角色|武器)[命座|角色]*[信息|阵容]*[ |0-9]*$",
+			"priority": 206,
+			"describe": "【#四星，#五星】角色列表"
+		},
+		"talentList": {
+			"reg": "^#*(我的)*(技能|天赋|武器|角色|练度|五|四|5|4|星)+(汇总|统计|列表)(force|五|四|5|4|星)*[ |0-9]*$",
+			"priority": 206,
+			"describe": "【#技能列表、#练度统计】查看所有角色技能列表"
+		},
+		"wife": {
+			"reg": "^#(老婆|妻子|媳妇|娘子|女朋友|女友|女神|老公|丈夫|夫君|郎君|男朋友|男友|男神|女儿|儿子)(1|2)*$",
+			"priority": 207,
+			"describe": "【#老婆，#老公，#女儿】角色详情"
+		},
+		"character2": {
+			"reg": "#*(.*)卡片|^#(.*)2$",
+			"priority": 208,
+			"describe": "【#刻晴卡片】角色详情"
+		},
+		"character": {
+			"reg": "",
+			"priority": 209,
+			"describe": "【#刻晴】角色详情"
+		},
+		"pokeCharacter": {
+			"reg": "^戳一戳$",
+			"priority": 210,
+			"describe": "【戳一戳】随机角色卡片"
+		},
+		"checkCookie": {
+			"reg": "^#*检查(ck|cookie)$",
+			"priority": 210,
+			"describe": "【检查ck】检查已配置的cookie"
+		},
+		"setCookie": {
+			"reg": "^#*配置(.*)$",
+			"priority": 211,
+			"describe": "【配置cookie】配置cookie"
+		},
+		"todayQuery": {
+			"reg": "^#(今日|今天|每日|我的)*(素材|材料|天赋)$",
+			"priority": 6000,
+			"describe": "【#今日素材】查看今天可以刷什么角色的"
+		}
+	},
+	"dailyNote": {
+		"dailyNote": {
+			"reg": "^#*(体力|树脂|查询体力)$",
+			"priority": 300,
+			"describe": "【体力，树脂】原神体力查询，需要私聊配置cookie"
+		},
+		"bingCookie": {
+			"reg": "noCheck",
+			"priority": 301,
+			"describe": "【cookie】私聊发送cookie绑定"
+		},
+		"noLogin": {
+			"reg": "(.*)_MHYUUID(.*)",
+			"priority": 302,
+			"describe": "请先登录米游社再获取"
+		},
+		"delCookie": {
+			"reg": "^#*(删除(Cookie|cookie|ck)|开启(体力|树脂)*推送|关闭(体力|树脂)*推送)$",
+			"priority": 302,
+			"describe": "【删除cookie,开启推送,关闭推送】删除已添加cookie，体力推送开关"
+		},
+		"resinhelp": {
+			"reg": "^#*(体力|树脂|cookie|签到|原石)(帮助|说明|功能)$",
+			"priority": 303,
+			"describe": "【体力帮助】体力cookie获取帮助说明"
+		},
+		"sign": {
+			"reg": "^(#签到|#*米游社(自动)*签到)$",
+			"priority": 304,
+			"describe": "【#签到】米游社签到，发送后自动开启签到"
+		},
+		"signPush": {
+			"reg": "^#*(开启签到推送|关闭签到推送)$",
+			"priority": 305,
+			"describe": "【开启签到推送,关闭签到推送】开启或关闭原神米游社签到推送"
+		},
+		"signClose": {
+			"reg": "^#*(开启|关闭)(米游社|自动)*签到$",
+			"priority": 305,
+			"describe": "【开启签到,关闭签到】开启或关闭原神米游社签到推送"
+		},
+		"myCookie": {
+			"reg": "^#*我的(ck|cookie)$",
+			"priority": 305,
+			"describe": "【我的ck】获取自己已经绑定的ck"
+		},
+		"ledger": {
+			"reg": "^(#原石|#*札记)([0-9]|[一二两三四五六七八九十]+)*月*$",
+			"priority": 305,
+			"describe": "【#原石，#原石2月，#札记】查看最近三个月原石"
+		},
+		"ledgerCount": {
+			"reg": "^#*(原石|札记)统计$",
+			"priority": 306,
+			"describe": ""
+		},
+		"signTaskAll": {
+			"reg": "^#(签到任务|全部签到)$",
+			"priority": 306,
+			"describe": ""
+		},
+		"ledgerTask": {
+			"reg": "^#原石任务$",
+			"priority": 306,
+			"describe": ""
+		}
+	},
+	"gachaLog": {
+		"bing": {
+			"reg": "(.*)authkey_ver(.*)",
+			"priority": 400,
+			"describe": "【历史记录链接】发送链接生成抽卡记录"
+		},
+		"bingFile": {
+			"reg": "noCheck",
+			"priority": 401,
+			"describe": "【日志文件】发送日志生成抽卡记录"
+		},
+		"getLog": {
+			"reg": "^#*(抽卡|抽奖|角色|武器|常驻|up)池*(记录|祈愿|分析)$",
+			"priority": 402,
+			"describe": "【日志文件】发送日志生成抽卡记录"
+		},
+		"history": {
+			"reg": "^#*(抽卡|抽奖|角色|武器|常驻|up)池*统计$",
+			"priority": 403,
+			"describe": "【抽卡统计】发送日志生成抽卡记录"
+		},
+		"help": {
+			"reg": "^#*(记录帮助|抽卡帮助)$",
+			"priority": 404,
+			"describe": "【记录帮助】抽卡记录链接说明"
+		},
+		"helpPort": {
+			"reg": "^#*(安卓|苹果|电脑)帮助$",
+			"priority": 405,
+			"describe": "【安卓帮助，苹果帮助，电脑帮助】各个端口获取链接帮助"
+		}
+	},
+	"newsListBBS": {
+		"newsContentBBS": {
+			"reg": "^(#*官方(公告|资讯|活动)|#*原神(公告|资讯|活动)|#公告|#资讯|#活动)[0-9]*$",
+			"priority": 500,
+			"describe": "【#官方公告】米游社官方公告"
+		},
+		"newsListBBS": {
+			"reg": "^#*(公告|资讯|活动)列表$",
+			"priority": 501,
+			"describe": "【#官方公告列表】米游社官方公告列表"
+		},
+		"pushnews": {
+			"reg": "^#*(开启公告推送|关闭公告推送)$",
+			"priority": 502,
+			"describe": "【#开启/关闭公告推送】"
+		},
+		"mysUrl": {
+			"reg": "(.*)bbs.mihoyo.com/ys(.*)/article(.*)",
+			"priority": 502,
+			"describe": ""
+		},
+		"mysSearch": {
+			"reg": "^(#米游社|#mys)(.*)",
+			"priority": 502,
+			"describe": ""
+		},
+		"pushNewsTask": {
+			"reg": "^测试推送(force)?$",
+			"priority": 502,
+			"describe": "【#开启/关闭公告推送】"
+		}
+	},
+	"other": {
+		"help": {
+			"reg": "^#*(命令|帮助|菜单|help|说明|功能|指令|使用说明)$",
+			"priority": 500,
+			"describe": "【#帮助】查看指令说明"
+		},
+		"status": {
+			"reg": "^#*状态$",
+			"priority": 500,
+			"describe": "机器人运行状态"
+		},
+		"version": {
+			"reg": "^#版本$",
+			"priority": 500,
+			"describe": "机器人当前版本"
+		},
+		"detConfig": {
+			"reg": "",
+			"priority": 500,
+			"describe": "删除config.js重新配置"
+		},
+		"repeat": {
+			"reg": "noCheck",
+			"priority": 501,
+			"describe": "复读机，重复内容5条以上复读"
+		}
+	},
+	"user": {
+		"bindUid": {
+			"reg": "^#绑定(uid)?\\s*(\\d{9})*$",
+			"priority": 500,
+			"describe": "【#个人】绑定UID"
+		},
+		"getUid": {
+			"reg": "^#(我的)?uid[0-9]{0,2}$",
+			"priority": 500,
+			"describe": "【#个人】查看uid"
+		}
+	},
+	"reliquaries": {
+		"scoreImg": {
+			"reg": "",
+			"priority": 599,
+			"describe": "【评分】圣遗物评分"
+		},
+		"score": {
+			"reg": "^#*(圣遗物)*评分$",
+			"priority": 600,
+			"describe": "【评分】圣遗物评分"
+		}
+	},
+	"skillcalculate": {
+		"skillcalculateHelp": {
+			"reg": "^#*角色(养成|计算|养成计算)$",
+			"priority": 800,
+			"describe": "【#养成计算器】根据已有角色计算养成所需材料"
+		},
+		"skillcalculate": {
+			"reg": "^#*(.*)(养成|计算|培养)([0-9]|,|，| )*$",
+			"priority": 801,
+			"describe": "【#养成计算器】根据已有角色计算养成所需材料"
+		}
+	},
+	"rolesInfo_xiaoyao": {
+		"roleInfo": {
+			"reg": "#*(.*)(信息|图鉴|命座|天赋|突破|材料|素材)$",
+			"priority": 900,
+			"describe": "【刻晴信息、刻晴图鉴、刻晴突破、刻晴命座】角色信息图鉴"
+		},
+		"weaponInfo": {
+			"reg": "",
+			"priority": 900,
+			"describe": "【护摩图鉴】武器信息图鉴"
+		}
+	},
+	"example": {
+		"example": {
+			"reg": "^#示例$",
+			"priority": 5000,
+			"describe": "【#示例】开发简单示例演示"
+		}
+	},
+	"examples": {
+		"examples": {
+			"reg": "^#例子$",
+			"priority": 5000,
+			"describe": "【#例子】开发简单示例演示"
+		}
+	},
+	"newcomers": {
+		"newcomers": {
+			"reg": "^#欢迎新人$",
+			"priority": 5000,
+			"describe": "【#欢迎新人】开发简单示例演示"
+		}
+	},
+	"face": {
+		"get": {
+			"reg": "noCheck",
+			"priority": 10000,
+			"describe": "发送已添加的表情文字"
+		},
+		"add": {
+			"reg": "#*添加(.*)",
+			"priority": 10001,
+			"describe": "【添加哈哈】添加内容"
+		},
+		"addContext": {
+			"reg": "noCheck",
+			"priority": 10002,
+			"describe": "回复添加的内容"
+		},
+		"del": {
+			"reg": "^#*删除(.*)$",
+			"priority": 10003,
+			"describe": "【删除哈哈】删除添加的内容"
+		},
+		"list": {
+			"reg": "^#*表情列表[0-9]*$",
+			"priority": 10004,
+			"describe": "【表情列表，表情列表1】添加表情列表"
+		},
+		"listFuzzy": {
+			"reg": "^#*表情(.*)$",
+			"priority": 10005,
+			"describe": "【表情哈哈】添加表情搜索"
+		},
+		"random": {
+			"reg": "noCheck",
+			"priority": 10006,
+			"describe": "斗图，需要百度ocr"
+		}
+	},
+	"strategy_xf": {
+		"strategy_xf": {
+			"reg": "^#*(.*)攻略$",
+			"priority": 11000,
+			"describe": "【刻晴攻略，更新刻晴攻略】自动下载更新西风驿站攻略图"
+		}
+	},
+	"ai": {
+		"tencentAI": {
+			"reg": "noCheck",
+			"priority": 20000,
+			"describe": "腾讯智障ai"
+		}
+	},
+	"global": {
+		"resources": {
+			"reg": "",
+			"priority": 20000,
+			"describe": "【文件名】就是触发指令"
+		}
+	}
+}
